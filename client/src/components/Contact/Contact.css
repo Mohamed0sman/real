@@ -1,6 +1,3 @@
-#contact-us{
-  margin: auto 8rem;
-}
 .c-container {
   justify-content: space-between;
 }
@@ -55,3 +52,24 @@
   scale: 0.8;
 }
 
+@media (max-width: 1024px) {
+  .c-container {
+    flex-direction: column;
+  }
+  .c-right {
+    justify-content: center;
+  }
+}
+@media (max-width: 1024px)
+{
+    .contactModes{
+        width: 100%;
+    }
+    .row{
+        flex-direction: column;
+        width: 100%;
+    }
+    .mode{
+        width: 100%;
+    }
+}

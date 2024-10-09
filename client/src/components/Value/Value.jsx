@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import React, { useState } from "react";
 import {
   Accordion,
   AccordionItem,
@@ -8,14 +8,18 @@ import {
   AccordionItemState,
 } from "react-accessible-accordion";
 import "react-accessible-accordion/dist/fancy-example.css";
-import {MdOutlineArrowDropDown} from "react-icons/md";
+import {
+  MdOutlineArrowDropDown,
+  MdOutlineArrowDropDownCircle,
+} from "react-icons/md";
 import data from "../../utils/accordion.jsx";
 import "./Value.css";
-function Value() {
-  return (
-    <section  className="v-wrapper">
-      <div className="paddings innerWidth flexCenter v-container">
+// Demo styles, see 'Styles' section below for some notes on use.
 
+const Value = () => {
+  return (
+    <section id="value" className="v-wrapper">
+      <div className="paddings innerWidth flexCenter v-container">
         {/* left side */}
         <div className="v-left">
           <div className="image-container">
@@ -23,10 +27,12 @@ function Value() {
           </div>
         </div>
 
-        {/* right side */}
+        {/* right */}
         <div className="flexColStart v-right">
           <span className="orangeText">Our Value</span>
+
           <span className="primaryText">Value We Give to You</span>
+
           <span className="secondaryText">
             We always ready to help by providijng the best services for you.
             <br />
@@ -43,7 +49,8 @@ function Value() {
               return (
                 <AccordionItem className={`accordionItem ${className}`} uuid={i} key={i}>
                   <AccordionItemHeading>
-                    <AccordionItemButton className="accordionButton ">
+                    <AccordionItemButton className="flexCenter accordionButton ">
+                        {/* just for getting state of item */}
                       <AccordionItemState>
                         {({ expanded }) =>
                           expanded
@@ -52,8 +59,14 @@ function Value() {
                         }
                       </AccordionItemState>
                       <div className="flexCenter icon">{item.icon}</div>
-                      <span className="primaryText">{item.heading}</span>
-                      <div className="flexCenter icon"><MdOutlineArrowDropDown size={20} /></div>
+                      <span
+                        className="primaryText"
+                      >
+                        {item.heading}
+                      </span>
+                      <div className="flexCenter icon">
+                        <MdOutlineArrowDropDown size={20} />
+                      </div>
                     </AccordionItemButton>
                   </AccordionItemHeading>
                   <AccordionItemPanel>
@@ -66,7 +79,7 @@ function Value() {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Value
+export default Value;

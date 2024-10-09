@@ -1,23 +1,52 @@
+import React, { useState } from "react";
 import "./Header.css";
-function Header() {
-  
-  return (
-    <section className="h-wrapper" >
-      <div className="flexCenter innerWidth h-container">
-        <img src="./logo.png" alt="logo" width={100} className="logo"/>
+import { BiMenuAltRight } from "react-icons/bi";
+import { getMenuStyles } from "../../utils/common";
+import useHeaderColor from "../../hooks/useHeaderColor";
+import { Link, NavLink } from "react-router-dom";
+import OutsideClickHandler from "react-outside-click-handler";
 
-          <div className="flexCenter h-menu">
-            <a href="">Residencies</a>
-            <a href="">Our Value</a>
-            <a href="">Contact Us</a>
-            <a href="">Get Started</a>
-            <button className="button">
-              <a href="">Contact</a>
-            </button>
+const Header = () => {
+  const [menuOpened, setMenuOpened] = useState(false);
+  const headerColor = useHeaderColor();
+
+  return (
+    <section className="h-wrapper" style={{ background: headerColor }}>
+      <div className="flexCenter innerWidth paddings h-container">
+        {/* logo */}
+        <Link to="/">
+          <img src="./logo.png" alt="logo" width={100} />
+        </Link>
+
+        {/* menu */}
+        <OutsideClickHandler
+          onOutsideClick={() => {
+            setMenuOpened(false);
+          }}
+        >
+          <div
+            // ref={menuRef}
+            className="flexCenter h-menu"
+            style={getMenuStyles(menuOpened)}
+          >
+            <NavLink to="/properties">Properties</NavLink>
+            <a href="mailto:zainkeepscode@gmail.com">Contact</a>
+           {/* login button */}
+           <button className="button">Login</button>
+          
           </div>
+        </OutsideClickHandler>
+
+        {/* for medium and small screens */}
+        <div
+          className="menu-icon"
+          onClick={() => setMenuOpened((prev) => !prev)}
+        >
+          <BiMenuAltRight size={30} />
+        </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

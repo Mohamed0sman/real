@@ -1,9 +1,9 @@
+import React from "react";
 import "./Contact.css";
 import { MdCall } from "react-icons/md";
 import { BsFillChatDotsFill } from "react-icons/bs";
 import {HiChatBubbleBottomCenter} from 'react-icons/hi2'
-
-function Contacts() {
+const Contact = () => {
   return (
     <div id="contact-us" className="c-wrapper">
       <div className="paddings innerWidth flexCenter c-container">
@@ -13,7 +13,7 @@ function Contacts() {
           <span className="primaryText">Easy to contact us</span>
           <span className="secondaryText">
             We always ready to help by providijng the best services for you. We
-            beleive a good <br/> blace to live can make your life better{" "}
+            beleive a good blace to live can make your life better{" "}
           </span>
 
           <div className="flexColStart contactModes">
@@ -85,7 +85,7 @@ function Contacts() {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Contacts
+export default Contact;

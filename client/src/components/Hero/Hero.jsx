@@ -1,7 +1,8 @@
 import "./Hero.css";
-import { HiLocationMarker } from "react-icons/hi";
 import CountUp from "react-countup";
-function Hero() {
+import { motion } from "framer-motion";
+import SearchBar from "../SearchBar/SearchBar";
+const Hero = () => {
   return (
     <section className="hero-wrapper">
       <div className="paddings innerWidth flexCenter hero-container">
@@ -9,22 +10,26 @@ function Hero() {
         <div className="flexColStart hero-left">
           <div className="hero-title">
             <div className="orange-circle" />
-            <h1>
+            <motion.h1
+              initial={{ y: "2rem", opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{
+                duration: 2,
+                type: "ease-in",
+              }}
+            >
               Discover <br />
               Most Suitable
               <br /> Property
-            </h1>
+            </motion.h1>
           </div>
           <div className="flexColStart secondaryText flexhero-des">
             <span>Find a variety of properties that suit you very easilty</span>
             <span>Forget all difficulties in finding a residence for you</span>
           </div>
 
-          <div className="flexCenter search-bar">
-            <HiLocationMarker color="var(--blue)" size={25} />
-            <input type="text" />
-            <button className="button">Search</button>
-          </div>
+          {/* searchBar component */}
+          <SearchBar />
 
           <div className="flexCenter stats">
             <div className="flexColCenter stat">
@@ -52,13 +57,21 @@ function Hero() {
 
         {/* right side */}
         <div className="flexCenter hero-right">
-          <div className="image-container">
+          <motion.div
+            initial={{ x: "7rem", opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{
+              duration: 2,
+              type: "ease-in",
+            }}
+            className="image-container"
+          >
             <img src="./hero-image.png" alt="houses" />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;
