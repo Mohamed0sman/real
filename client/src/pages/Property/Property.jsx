@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { useQuery } from "react-query";
 import { useLocation } from "react-router-dom";
 import { getProperty } from "../../utils/api";
 import { PuffLoader } from "react-spinners";
 import { AiFillHeart } from "react-icons/ai";
+import useAuthCheck from "../../hooks/useAuthCheck";
+
 import "./Property.css";
 import { FaShower } from "react-icons/fa";
 import { AiTwotoneCar } from "react-icons/ai";
@@ -15,6 +17,10 @@ const Property = () => {
   const { data, isLoading, isError } = useQuery(["resd", id], () =>
     getProperty(id)
   );
+
+  const [modalOpened, setModalOpened] = useState(false);
+  const { validateLogin } = useAuthCheck();
+
 
   if (isLoading) {
     return (
@@ -90,8 +96,16 @@ const Property = () => {
             </div>
 
             {/* booking button */}
-            <button className="button">Book your visit</button>
-          </div>
+            <button className="button"
+            onClick={()=>{
+              validateLogin()&&setModalOpened(true)
+            }}
+            >
+              
+              Book your visit
+              </button>
+
+            </div>
 
           {/* right side */}
           <div className="map">
