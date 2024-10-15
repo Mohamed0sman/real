@@ -7,9 +7,15 @@ import { useAuth0 } from "@auth0/auth0-react";
 import UserDetailContext from "../../context/UserDetailContext";
 import { createUser } from "../../utils/api";
 import { useMutation } from "react-query";
+import useFavourites from "../../hooks/useFavourites";
+import useBookings from "../../hooks/useBookings";
 
 // outlet is used to render nested routes
 const Layout = () => {
+  useFavourites();
+  useBookings();
+
+
   const { isAuthenticated, user, getAccessTokenWithPopup } = useAuth0();
   const { setUserDetails } = useContext(UserDetailContext);
   const { mutate } = useMutation({
