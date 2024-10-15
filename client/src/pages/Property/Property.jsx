@@ -17,7 +17,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import BookingModal from "../../components/BookingModal/BookingModal";
 import { Button } from "@mantine/core";
 import { toast } from "react-toastify";
-// import Heart from "../../components/Heart/Heart";
+import Heart from "../../components/Heart/Heart";
 
 const Property = () => {
   const { pathname } = useLocation();
@@ -70,7 +70,7 @@ const Property = () => {
       <div className="flexColStart paddings innerWidth property-container">
         {/* like button */}
         <div className="like">
-          <AiFillHeart color="white" size={24} />
+          <Heart id={id}/>
         </div>
         {/* image */}
         <img src={data?.image} alt="home image" />
