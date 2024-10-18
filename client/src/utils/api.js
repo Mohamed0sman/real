@@ -1,8 +1,9 @@
 import axios from "axios";
 import dayjs from "dayjs";
 import { toast } from "react-toastify";
+
 export const api = axios.create({
-  baseURL: "http://localhost:8000/api",
+  baseURL: "https://full-stack-real-estate-youtube.vercel.app/api",
 });
 
 export const getAllProperties = async () => {
@@ -10,6 +11,7 @@ export const getAllProperties = async () => {
     const response = await api.get("/residency/allresd", {
       timeout: 10 * 1000,
     });
+
     if (response.status === 400 || response.status === 500) {
       throw response.data;
     }
@@ -19,9 +21,13 @@ export const getAllProperties = async () => {
     throw error;
   }
 };
+
 export const getProperty = async (id) => {
   try {
-    const response = await api.get(`/residency/${id}`, { timeout: 10 * 1000 });
+    const response = await api.get(`/residency/${id}`, {
+      timeout: 10 * 1000,
+    });
+
     if (response.status === 400 || response.status === 500) {
       throw response.data;
     }
@@ -48,6 +54,7 @@ export const createUser = async (email, token) => {
     throw error;
   }
 };
+
 export const bookVisit = async (date, propertyId, email, token) => {
   try {
     await api.post(
@@ -88,6 +95,7 @@ export const removeBooking = async (id, email, token) => {
     throw error;
   }
 };
+
 export const toFav = async (id, email, token) => {
   try {
     await api.post(
@@ -105,6 +113,7 @@ export const toFav = async (id, email, token) => {
     throw e;
   }
 };
+
 
 export const getAllFav = async (email, token) => {
   if(!token) return 
@@ -152,6 +161,27 @@ export const getAllBookings = async (email, token) => {
     
   } catch (error) {
     toast.error("Something went wrong while fetching bookings");
+    throw error
+  }
+}
+
+
+export const createResidency = async (data, token) => {
+  console.log(data)
+  try{
+    const res = await api.post(
+      `/residency/create`,
+      {
+        data
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
+  }catch(error)
+  {
     throw error
   }
 }
