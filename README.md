@@ -1,5 +1,5 @@
 # Full Stack Real Estate Web App:
-A modern and fully responsive real estate web application designed to provide seamless property management and booking experiences. This application offers features like property listings, favorites management, booking functionalities,easy navigation, and many more. Built with React, Prisma, MongoDB, and other cutting-edge technologies, it ensures high performance, accessibility, and SEO optimization. The app supports easy navigation, simple animations, and robust authentication for a secure, scalable solution.
+A modern and fully responsive real estate web application designed to provide seamless property management and booking experiences. This application offers features like property listings, favorites management, booking functionalities, easy navigation, and many more. Built with React, Prisma, MongoDB, and other cutting-edge technologies, it ensures high performance, accessibility, and SEO optimization. The app supports easy navigation, simple animations, and robust authentication for a secure, scalable solution.
 
 <br/>
 
@@ -16,7 +16,7 @@ Google Fonts
 
 <br/>
 
-🌐**Demo (Live Preview):** <a href="https://real-estate-test-deploy-six.vercel.app/" target="_blank">https://real-estate-test-deploy-six.vercel.app/</a> 
+🌐**Demo (Live Preview):** <a href="https://full-stack-real-estate-web-app-depi-final-project.vercel.app/" target="_blank">https://full-stack-real-estate-web-app-depi-final-project.vercel.app/</a> 
 
 <br/>
 
@@ -37,7 +37,7 @@ Google Fonts
 ### 📥 Installation Instructions for Local Setup:
 To download and run this project locally:
 1. Clone the repository:
-=> git clone https://github.com/your-username/real-estate-app.git
+=> git clone https://github.com/Ahmed-Maher77/Full-Stack-Real-Estate-Web-App__DEPI-Final-Project.git
 2. Navigate into the project directory:
 => cd Full-Stack-Real-Estate-Web-App__DEPI-Final-Project
 3. Install dependencies:
