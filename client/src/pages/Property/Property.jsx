@@ -4,21 +4,19 @@ import { useLocation } from "react-router-dom";
 import { getProperty, removeBooking } from "../../utils/api";
 import { PuffLoader } from "react-spinners";
 import { AiFillHeart } from "react-icons/ai";
-import useAuthCheck from "../../hooks/useAuthCheck";
-
 import "./Property.css";
+
 import { FaShower } from "react-icons/fa";
 import { AiTwotoneCar } from "react-icons/ai";
 import { MdLocationPin, MdMeetingRoom } from "react-icons/md";
 import Map from "../../components/Map/Map";
-
-import UserDetailContext from "../../context/UserDetailContext.js";
+import useAuthCheck from "../../hooks/useAuthCheck";
 import { useAuth0 } from "@auth0/auth0-react";
 import BookingModal from "../../components/BookingModal/BookingModal";
+import UserDetailContext from "../../context/UserDetailContext.js";
 import { Button } from "@mantine/core";
 import { toast } from "react-toastify";
 import Heart from "../../components/Heart/Heart";
-
 const Property = () => {
   const { pathname } = useLocation();
   const id = pathname.split("/").slice(-1)[0];
@@ -28,7 +26,8 @@ const Property = () => {
 
   const [modalOpened, setModalOpened] = useState(false);
   const { validateLogin } = useAuthCheck();
-  const {user} = useAuth0();
+  const { user } = useAuth0();
+
   const {
     userDetails: { token, bookings },
     setUserDetails,
@@ -46,7 +45,6 @@ const Property = () => {
     },
   });
 
-
   if (isLoading) {
     return (
       <div className="wrapper">
@@ -58,11 +56,13 @@ const Property = () => {
   }
 
   if (isError) {
-    <div className="wrapper">
-      <div className="flexCenter paddings">
-        <span>Error while fetching the property details </span>
+    return (
+      <div className="wrapper">
+        <div className="flexCenter paddings">
+          <span>Error while fetching the property details</span>
+        </div>
       </div>
-    </div>;
+    );
   }
 
   return (
@@ -72,6 +72,7 @@ const Property = () => {
         <div className="like">
           <Heart id={id}/>
         </div>
+
         {/* image */}
         <img src={data?.image} alt="home image" />
 
@@ -108,15 +109,19 @@ const Property = () => {
             </div>
 
             {/* description */}
+
             <span className="secondaryText" style={{ textAlign: "justify" }}>
               {data?.description}
             </span>
+
             {/* address */}
 
             <div className="flexStart" style={{ gap: "1rem" }}>
               <MdLocationPin size={25} />
               <span className="secondaryText">
-                {data?.address} {data?.city} {data?.country}
+                {data?.address}{" "}
+                {data?.city}{" "}
+                {data?.country}
               </span>
             </div>
 
@@ -148,16 +153,13 @@ const Property = () => {
               </button>
             )}
 
-
-              <BookingModal
+            <BookingModal
               opened={modalOpened}
               setOpened={setModalOpened}
               propertyId={id}
               email={user?.email}
             />
-
-
-            </div>
+          </div>
 
           {/* right side */}
           <div className="map">

@@ -7,13 +7,12 @@
     width: 80%;
     height: 25rem;
     border: 2px dashed grey;
-    cursor : pointer; 
+    cursor: pointer;
 }
-
 .uploadedImage{
     width: 80%;
     height: 25rem;
-    border-radius: 10px ;
+    border-radius: 10px;
     cursor: pointer;
     overflow: hidden;
 }

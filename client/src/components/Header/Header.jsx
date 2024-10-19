@@ -1,28 +1,53 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Header.css";
 import { BiMenuAltRight } from "react-icons/bi";
 import { getMenuStyles } from "../../utils/common";
 import useHeaderColor from "../../hooks/useHeaderColor";
-import { Link, NavLink } from "react-router-dom";
 import OutsideClickHandler from "react-outside-click-handler";
+import { Link, NavLink } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import ProfileMenu from "../ProfileMenu/ProfileMenu";
 import AddPropertyModal from "../AddPropertyModal/AddPropertyModal";
-import useAuthCheck from '../../hooks/useAuthCheck';
-
+import useAuthCheck from "../../hooks/useAuthCheck.jsx";
+import axios from "axios";
 
 const Header = () => {
   const [menuOpened, setMenuOpened] = useState(false);
   const headerColor = useHeaderColor();
   const [modalOpened, setModalOpened] = useState(false);
-  const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();
-  const {validateLogin} = useAuthCheck()
-  const handleAddPropertyClick = () =>{
+  const { loginWithPopup, isAuthenticated, user, logout } = useAuth0();
+  const { validateLogin } = useAuthCheck();
 
-    if (validateLogin()){
+  const handleAddPropertyClick = () => {
+    if (validateLogin()) {
       setModalOpened(true);
-    } 
-  }
+    }
+  };
+
+  useEffect(() => {
+    // Create user in the database after login
+    const createUser = async () => {
+      if (isAuthenticated && user) {
+        try {
+          // Send the Auth0 user data to your backend
+          const response = await axios.post(
+            "https://real-estate-server-depi.vercel.app/api/user/register",
+            {
+              // name: user.name,
+              email: user.email,
+              // auth0Id: user.sub,  // Auth0 user ID
+            }
+          );
+          console.log("User created/exists:", response.data);
+        } catch (error) {
+          console.error("Error creating user:", error);
+        }
+      }
+    };
+
+    createUser();
+  }, [isAuthenticated, user]);
+
   return (
     <section className="h-wrapper" style={{ background: headerColor }}>
       <div className="flexCenter innerWidth paddings h-container">
@@ -43,21 +68,20 @@ const Header = () => {
             style={getMenuStyles(menuOpened)}
           >
             <NavLink to="/properties">Properties</NavLink>
+
             <a href="mailto:zainkeepscode@gmail.com">Contact</a>
-            
-            {/*add property */}
+
+            {/* add property */}
             <div onClick={handleAddPropertyClick}>Add Property</div>
-            <AddPropertyModal opened ={modalOpened} setOpened = {setModalOpened}/>
-            
+            <AddPropertyModal opened={modalOpened} setOpened={setModalOpened} />
             {/* login button */}
             {!isAuthenticated ? (
-              <button className="button" onClick={loginWithRedirect}>
+              <button className="button" onClick={loginWithPopup}>
                 Login
               </button>
-            ) :(
+            ) : (
               <ProfileMenu user={user} logout={logout} />
             )}
-           
           </div>
         </OutsideClickHandler>
 

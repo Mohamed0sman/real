@@ -1,15 +1,11 @@
 import React from 'react'
 import {Avatar, Menu} from '@mantine/core'
 import { useNavigate } from 'react-router-dom'
-import { MantineProvider } from '@mantine/core';
-import '@mantine/core/styles.css';
-
 const ProfileMenu = ({user, logout}) => {
     const navigate = useNavigate()
   return (
-    <MantineProvider>
     <Menu>
-         <Menu.Target>
+        <Menu.Target>
             <Avatar src={user?.picture} alt='user image' radius={"xl"}/>
         </Menu.Target>
         <Menu.Dropdown>
@@ -28,11 +24,7 @@ const ProfileMenu = ({user, logout}) => {
                 Logout
             </Menu.Item>
         </Menu.Dropdown>
-
-
     </Menu>
-  </MantineProvider>
-
   )
 }
 
