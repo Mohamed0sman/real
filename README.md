@@ -5,7 +5,7 @@ A modern and fully responsive real estate web application designed to provide se
 
 💻 **Used Technologies:** <br>
 - **Frontend:** HTML, CSS, React.js, Mantine UI, React Query, Toastify
-- **Backend:** Prisma, MongoDB
+- **Backend:** Node.js, Express.js, Prisma, MongoDB
 - **Authentication:** Auth0
 - **Deployment:** Vercel
 - **Image Upload:** Cloudinary
