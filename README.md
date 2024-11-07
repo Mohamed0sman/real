@@ -50,7 +50,7 @@ To download and run this project locally:
 
 ## Contributors:
 
-- <strong>Ahmed Maher Algohary (Me):</strong> <a href="https://www.linkedin.com/in/ahmed-maher-algohary/" title="see me on LinkedIn">see me on LinkedIn</a> 
+- <strong>Ahmed Maher Algohary (Me) **||Team Leader||**:</strong> <a href="https://www.linkedin.com/in/ahmed-maher-algohary/" title="see me on LinkedIn">see me on LinkedIn</a> 
 - <strong>Ahmed Abdallah Alqasapy</strong>
 - <strong>Esraa Aziz</strong>
 - <strong>Arwa Mahmoud</strong>
