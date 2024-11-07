@@ -50,9 +50,9 @@ To download and run this project locally:
 
 ## Contributors:
 
+- <strong>Ahmed Maher Algohary (Me):</strong> <a href="https://www.linkedin.com/in/ahmed-maher-algohary/" title="see me on LinkedIn">see me on LinkedIn</a> 
 - <strong>Ahmed Abdallah Alqasapy</strong>
 - <strong>Esraa Aziz</strong>
-- <strong>Ahmed Maher Algohary</strong>
 - <strong>Arwa Mahmoud</strong>
 - <strong>Abdulhakim Osama</strong>
 - <strong>Maryam Abdul Raheem</strong>
