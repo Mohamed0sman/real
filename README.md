@@ -17,7 +17,8 @@ Google Fonts
 <br/>
 
 🌐**Demo (Live Preview):** <a href="https://full-stack-real-estate-web-app-depi-final-project.vercel.app/" target="_blank">https://full-stack-real-estate-web-app-depi-final-project.vercel.app/</a> 
-
+<br/>
+**Presentation:** <a href="https://docs.google.com/presentation/d/1smns3cbhBxojP1qGxGeBIC3UO5UqFCUp/edit?usp=sharing&ouid=111150948434081390825&rtpof=true&sd=true" target="_blank">click here (google slides)</a> 
 <br/>
 
 ## ✨Key Features:
