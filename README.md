@@ -38,7 +38,7 @@ Google Fonts
 ### 📥 Installation Instructions for Local Setup:
 To download and run this project locally:
 1. Clone the repository:
-=> git clone https://github.com/Ahmed-Maher77/Full-Stack-Real-Estate-Web-App__DEPI-Final-Project.git
+=> git clone 
 2. Navigate into the project directory:
 => cd Full-Stack-Real-Estate-Web-App__DEPI-Final-Project
 3. Install dependencies:
